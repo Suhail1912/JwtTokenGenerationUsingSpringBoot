@@ -28,30 +28,6 @@ import com.purpletalk.hr.project.Service.JwtTokenProvider;
 @RequestMapping("/api/auth")
 public class AuthController {
 	
-	//Method 1
-//	@Autowired
-//    AuthenticationManager authenticationManager;
-//
-//    @Autowired
-//    JwtTokenProvider tokenProvider;
-//
-//    @PostMapping("/signin")
-//    public ResponseEntity<?> authenticateUser(@Valid @RequestBody HrLoginRequest hrLoginRequest) {
-//
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                		hrLoginRequest.getUsernameOrEmail(),
-//                		hrLoginRequest.getPassword()
-//                )
-//        );
-//
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        String jwt = tokenProvider.generateToken(authentication);
-//        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
-//    }
-	
-	//Method 2
 
 	@Autowired
 	private AuthenticationManager authenticationManager;

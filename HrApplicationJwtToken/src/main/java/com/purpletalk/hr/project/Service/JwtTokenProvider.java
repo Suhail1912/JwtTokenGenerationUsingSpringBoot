@@ -23,59 +23,6 @@ import io.jsonwebtoken.UnsupportedJwtException;
 @Component
 public class JwtTokenProvider {
 	
-	//Method 1
-	
-//	private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
-//
-//    @Value("${app.jwtSecret}")
-//    private String jwtSecret;
-//
-//    @Value("${app.jwtExpirationInMs}")
-//    private int jwtExpirationInSec;
-//    
-//    //generating Token
-//    public String generateToken(Authentication authentication) {
-//
-//    	HrDetails userPrincipal = (HrDetails) authentication.getPrincipal();
-//    	System.out.println(userPrincipal.getUsername()+">>>>>>>>>>>");
-//        return Jwts.builder()
-//                .setSubject(userPrincipal.getUsername())
-//                .setIssuedAt(new Date(System.currentTimeMillis()))
-//                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInSec*1000))
-//                .signWith(SignatureAlgorithm.HS256, jwtSecret)
-//                .compact();
-//    }
-//    //getting username from token    
-//    public String getUserNameFromJWT(String token) {
-//        Claims claims = Jwts.parser()
-//                .setSigningKey(jwtSecret)
-//                .parseClaimsJws(token)
-//                .getBody();
-//
-//        return claims.getSubject();
-//    }
-//    //Validating  Tokens
-//    public boolean validateToken(String authToken) {
-//        try {
-//            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
-//            return true;
-//        } catch (SignatureException ex) {
-//            logger.error("Invalid JWT signature");
-//        } catch (MalformedJwtException ex) {
-//            logger.error("Invalid JWT token");
-//        } catch (ExpiredJwtException ex) {
-//            logger.error("Expired JWT token");
-//        } catch (UnsupportedJwtException ex) {
-//            logger.error("Unsupported JWT token");
-//        }
-//        catch (IllegalArgumentException ex) {
-//            logger.error("JWT claims string is empty.");
-//        }
-//        return false;
-//    }
-//    
-    
-	//Method 2
 	
 	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 	@Value("${app.jwtSecret}")
